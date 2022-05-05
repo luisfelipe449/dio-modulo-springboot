@@ -33,11 +33,7 @@ public class AlunoController {
     return service.getAllAvaliacaoFisicaId(id);
   }
 
-  @GetMapping
-  public List<Aluno> getAll(@RequestParam(value = "dataDeNascimento", required = false) String dataDeNacimento) {
-    return service.getAll(dataDeNacimento);
-  }
-
+ 
   @GetMapping
   public ResponseEntity<List<Aluno>> getAll(@Valid Aluno aluno) {
     List<Aluno> all = alunoRepository.findAll(Example.of(aluno));
