@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @RestController
 @RequestMapping("/alunos")
 public class AlunoController {
@@ -33,11 +34,10 @@ public class AlunoController {
     return service.getAllAvaliacaoFisicaId(id);
   }
 
- 
   @GetMapping
   public ResponseEntity<List<Aluno>> getAll(@Valid Aluno aluno) {
     List<Aluno> all = alunoRepository.findAll(Example.of(aluno));
-    return ResponseEntity.ok(all); 
+    return ResponseEntity.ok(all);
   }
 
 }
